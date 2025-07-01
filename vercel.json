@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "manlung.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/manlung.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}

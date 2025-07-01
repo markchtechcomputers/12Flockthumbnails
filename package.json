@@ -1,6 +1,6 @@
 {
     "description": "my thumbnail urls",
-    "main": "./index.js",
+    "main": "./manlung.js",
   "engines" : { 
     "npm" : ">=9.7.2",
     "node" : ">=20.0.0"

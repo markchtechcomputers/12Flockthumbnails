@@ -1,146 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>12 Flock Thumbnails</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: black;
-            color: white;
-            font-family: 'Bungee Inline', cursive;
-            overflow-x: hidden;
-        }
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adict Manlung | Music Store</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #0d0d0d;
+        color: #fff;
+        text-align: center;
+    }
+    header {
+        padding: 20px;
+        background: #000;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffd200;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 30px;
+    }
+    .card {
+        background: #1a1a1a;
+        margin: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        width: 280px;
+        box-shadow: 0 0 10px rgba(255,210,0,0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(255,210,0,0.4);
+    }
+    .card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .card h3 {
+        margin: 10px 0;
+        color: #ffd200;
+    }
+    .card p {
+        margin: 5px 0;
+    }
+    .card button {
+        background: #ffd200;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .card button:hover {
+        background: #e6c300;
+    }
+    #payment-section {
+        display: none;
+        background: #111;
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 500px;
+        box-shadow: 0 0 15px rgba(255,210,0,0.4);
+    }
+    #payment-section h2 {
+        color: #ffd200;
+    }
+    select, input {
+        padding: 10px;
+        width: 80%;
+        margin: 10px auto;
+        border: 1px solid #ffd200;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    button.verify {
+        background: #ffd200;
+        color: #000;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .downloads {
+        display: none;
+        margin-top: 15px;
+    }
+    .downloads a {
+        display: block;
+        color: #ffd200;
+        font-size: 18px;
+        margin: 8px 0;
+        text-decoration: none;
+    }
+    footer {
+        margin-top: 40px;
+        padding: 15px;
+        background: #000;
+        color: #ffd200;
+        font-size: 14px;
+    }
+</style>
 </head>
 <body>
-    <canvas id="matrix"></canvas>
 
-    <h1 class="text-center text-6xl mt-10 mb-10">
-        12 Flock Thumbnails
-    </h1>
+<header>Adict Manlung | Exclusive Releases</header>
 
-    <div id="thumbnailGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 px-4 mb-20">
-        <!-- Loading message -->
-        <div id="loadingMessage" class="col-span-full text-center text-xl text-green-400 py-10">
-            Loading thumbnails...
-        </div>
+<div class="container">
+    <div class="card">
+        <img src="https://files.catbox.moe/nwsonp.png" alt="Black Africa">
+        <h3>Black Africa</h3>
+        <p>Price: From Ksh 700/-</p>
+        <button onclick="showPayment('Black Africa')">Buy Now</button>
     </div>
-
-    <div class="text-center mt-16 mb-20 space-y-4">
-        <p class="text-xl">Contact: <span class="text-green-400">0724356178</span></p>
-        <p class="text-xl">Email: <span class="text-green-400">marklinochieng@gmail.com</span></p>
-        <div class="flex justify-center space-x-8 mt-4">
-            <a href="https://facebook.com/adictmalung" target="_blank" class="text-blue-500 hover:underline">Facebook</a>
-            <a href="https://instagram.com/adictmalung" target="_blank" class="text-pink-500 hover:underline">Instagram</a>
-            <a href="https://twitter.com/adictmalung" target="_blank" class="text-blue-400 hover:underline">Twitter</a>
-        </div>
+    <div class="card">
+        <img src="https://files.catbox.moe/chigvv.png" alt="My Gee">
+        <h3>My Gee</h3>
+        <p>Price: From Ksh 700/-</p>
+        <button onclick="showPayment('My Gee')">Buy Now</button>
     </div>
+    <div class="card">
+        <img src="https://files.catbox.moe/2p9ak4.png" alt="Unfinished Business">
+        <h3>Unfinished Business</h3>
+        <p>Price: From Ksh 700/-</p>
+        <button onclick="showPayment('Unfinished Business')">Buy Now</button>
+    </div>
+</div>
 
-    <a href="https://wa.me/254724356178?text=Hello%20I%20want%20to%20buy%20a%20thumbnail" 
-       class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg z-10">
-        WhatsApp Us
-    </a>
+<div id="payment-section">
+    <h2>Complete Your Payment</h2>
+    <p><strong>Selected Track:</strong> <span id="selected-track"></span></p>
+    
+    <p>Select Package:</p>
+    <select id="package">
+        <option value="700">Low - Ksh 700/-</option>
+        <option value="1000">Standard - Ksh 1,000/-</option>
+    </select>
+    
+    <p>Pay via any of the following Paybills:</p>
+    <ul style="list-style:none;padding:0;">
+        <li><strong>Paybill:</strong> 522522 | <strong>Account:</strong> 1336980125</li>
+        <li><strong>Paybill:</strong> 222111 | <strong>Account:</strong> 085000113030</li>
+    </ul>
+    
+    <p>After payment, enter your M-Pesa Transaction ID:</p>
+    <input type="text" id="txn-id" placeholder="Enter Transaction ID">
+    <br>
+    <button class="verify" onclick="verifyPayment()">Verify & Download</button>
+    
+    <p id="status" style="margin-top:10px;color:#ffd200;"></p>
+    
+    <div class="downloads" id="downloads">
+        <h3>Download Your Tracks</h3>
+        <a href="Black_Africa.wav" download>Download Black Africa</a>
+        <a href="My_Gee.mp3" download>Download My Gee</a>
+        <a href="Unfinished_Business.mp3" download>Download Unfinished Business</a>
+    </div>
+</div>
 
-    <script>
-        // Matrix rain background
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        canvas.height = window.innerHeight;
-        canvas.width = window.innerWidth;
-        let binary = "01".split("");
-        let font_size = 14;
-        let columns = canvas.width / font_size;
-        let drops = [];
-        for (let x = 0; x < columns; x++)
-            drops[x] = 1;
+<footer>&copy; 2025 Adict Manlung. All rights reserved.</footer>
 
-        function draw() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#0F0";
-            ctx.font = font_size + "px monospace";
-            for (let i = 0; i < drops.length; i++) {
-                let text = binary[Math.floor(Math.random() * binary.length)];
-                ctx.fillText(text, i * font_size, drops[i] * font_size);
-                if (drops[i] * font_size > canvas.height && Math.random() > 0.975)
-                    drops[i] = 0;
-                drops[i]++;
-            }
+<script>
+    function showPayment(track) {
+        document.getElementById('selected-track').innerText = track;
+        document.getElementById('payment-section').style.display = 'block';
+        document.getElementById('status').innerText = '';
+        document.getElementById('downloads').style.display = 'none';
+        document.getElementById('txn-id').value = '';
+    }
+    
+    function verifyPayment() {
+        let txn = document.getElementById('txn-id').value.trim();
+        if (txn.length < 8) {
+            document.getElementById('status').innerText = 'Invalid Transaction ID. Please check and try again.';
+        } else {
+            document.getElementById('status').innerText = 'Payment verified! Unlocking downloads...';
+            setTimeout(() => {
+                document.getElementById('downloads').style.display = 'block';
+            }, 1500);
         }
+    }
+</script>
 
-        setInterval(draw, 33);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        // Fetch and display images
-        async function loadThumbnails() {
-            try {
-                const response = await fetch('https://raw.githubusercontent.com/kkeizzah/Json/main/image.json');
-                
-                if (!response.ok) {
-                    throw new Error(HTTP error! status: ${response.status});
-                }
-                
-                const data = await response.json();
-                const thumbnails = data.thumbnails || data.images; // Fallback to old structure
-                const grid = document.getElementById('thumbnailGrid');
-                const loadingMessage = document.getElementById('loadingMessage');
-                
-                // Remove loading message
-                if (loadingMessage) {
-                    loadingMessage.remove();
-                }
-                
-                // Display fetched thumbnails
-                thumbnails.forEach((thumbnail, index) => {
-                    const box = document.createElement('div');
-                    box.className = "border-4 border-red-600 bg-green-900/20 rounded-xl p-2 shadow-[0_0_20px_2px_rgba(0,255,0,0.5)] hover:scale-105 transition transform duration-300";
-                    
-                    // Handle both old and new JSON structures
-                    const imgSrc = thumbnail.imageUrl || thumbnail;
-                    const title = thumbnail.title || (index === 0 ? "DJ ROLEX 245 CLUB BANGERS 2025" : Thumbnail ${index + 1});
-                    const desc = thumbnail.description || "Kenyan Youtubers";
-                    const price = thumbnail.price || (250 + Math.floor(Math.random() * 250)); // Default price range
-                    
-                    box.innerHTML = `
-                        <img src="${imgSrc}" alt="${title}" class="rounded mb-2 mx-auto w-full aspect-video object-cover transition duration-500 hover:scale-110"
-                             onerror="this.src='https://via.placeholder.com/1280x720?text=Image+Not+Found'">
-                        <div class="bg-black/60 p-2 rounded">
-                            <h2 class="text-center text-lg">${title}</h2>
-                            <p class="text-center text-sm text-gray-300">${desc}</p>
-                            <p class="text-center text-green-400 font-bold mt-1">Price: KSH ${price}</p>
-                        </div>
-                    `;
-                    
-                    grid.appendChild(box);
-                });
-                
-            } catch (error) {
-                console.error('Error loading thumbnails:', error);
-                const grid = document.getElementById('thumbnailGrid');
-                const loadingMessage = document.getElementById('loadingMessage');
-                
-                if (loadingMessage) {
-                    loadingMessage.textContent = "Failed to load thumbnails. Please try again later.";
-                    loadingMessage.classList.remove('text-green-400');
-                    loadingMessage.classList.add('text-red-500');
-                }
-            }
-        }
-
-        // Start loading thumbnails when page loads
-        document.addEventListener('DOMContentLoaded', loadThumbnails);
-    </script>
 </body>
 </html>

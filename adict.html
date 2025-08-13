@@ -104,6 +104,20 @@
         margin: 8px 0;
         text-decoration: none;
     }
+    .social-links, .music-links {
+        margin: 30px 0;
+    }
+    .social-links a, .music-links a {
+        display: inline-block;
+        margin: 10px;
+        color: #ffd200;
+        font-size: 20px;
+        text-decoration: none;
+    }
+    .music-links a {
+        display: block;
+        font-size: 18px;
+    }
     footer {
         margin-top: 40px;
         padding: 15px;
@@ -138,6 +152,7 @@
     </div>
 </div>
 
+<!-- Payment Section -->
 <div id="payment-section">
     <h2>Complete Your Payment</h2>
     <p><strong>Selected Track:</strong> <span id="selected-track"></span></p>
@@ -162,24 +177,56 @@
     <p id="status" style="margin-top:10px;color:#ffd200;"></p>
     
     <div class="downloads" id="downloads">
-        <h3>Download Your Tracks</h3>
-        <a href="Black_Africa.wav" download>Download Black Africa</a>
-        <a href="My_Gee.mp3" download>Download My Gee</a>
-        <a href="Unfinished_Business.mp3" download>Download Unfinished Business</a>
+        <h3>Download Your Track</h3>
+        <a id="download-link" href="#" download>Download Track</a>
     </div>
+</div>
+
+<!-- Social Media Links -->
+<div class="social-links">
+    <h2>Follow Adict Manlung</h2>
+    <a href="https://www.youtube.com/@AdictManlung" target="_blank">YouTube</a>
+    <a href="https://www.facebook.com/adictmanlung" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/adictmanlung" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@adictmanlung" target="_blank">TikTok</a>
+    <a href="https://twitter.com/adictmanlung" target="_blank">X</a>
+</div>
+
+<!-- Music Store Links -->
+<div class="music-links">
+    <h2>Listen on Music Platforms</h2>
+    <a href="https://youtu.be/CSk1ZqL2mKM?si=79edwLtzwYlb8AXj" target="_blank">YouTube</a>
+    <a href="https://open.spotify.com/track/1tAf6A4ZJQXgJqZcd0ZRX1?si=eYzC-iMjSh6J3DjZ4Enorg" target="_blank">Spotify</a>
+    <a href="https://music.amazon.co.uk/tracks/B0FHZ1NRHW?marketplaceId=A1F83G8C2ARO7P&musicTerritory=GB&ref=dm_sh_GEnsKZ3byeQDHsf3XeLaBDxIr" target="_blank">Amazon Music</a>
+    <a href="https://music.apple.com/ke/album/my-gee-single/1827335536" target="_blank">Apple Music</a>
+    <a href="https://www.boomplay.com/artists/113745914?from=search&srModel=COPYLINK&srList=WEB" target="_blank">Boomplay</a>
+    <a href="https://audiomack.com/adict-manlung/song/my-gee?share-user-id=176955407" target="_blank">Audiomack</a>
 </div>
 
 <footer>&copy; 2025 Adict Manlung. All rights reserved.</footer>
 
 <script>
+    const trackFiles = {
+        "Black Africa": "Black_Africa.wav",
+        "My Gee": "My_Gee.mp3",
+        "Unfinished Business": "Unfinished_Business.mp3"
+    };
+
     function showPayment(track) {
         document.getElementById('selected-track').innerText = track;
         document.getElementById('payment-section').style.display = 'block';
         document.getElementById('status').innerText = '';
         document.getElementById('downloads').style.display = 'none';
         document.getElementById('txn-id').value = '';
+
+        const username = "your-username"; // Replace with your GitHub username
+        const repo = "your-repo"; // Replace with your GitHub repo name
+        const fileName = trackFiles[track];
+        const downloadLink = document.getElementById('download-link');
+        downloadLink.href = `https://${username}.github.io/${repo}/${fileName}`;
+        downloadLink.innerText = `Download ${track}`;
     }
-    
+
     function verifyPayment() {
         let txn = document.getElementById('txn-id').value.trim();
         if (txn.length < 8) {

@@ -194,51 +194,123 @@
 " target="_blank">X</a>
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adict Manlung | Music Platforms</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #111;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .music-links {
+        margin: 40px auto;
+        padding: 20px;
+        background: #1c1c1c;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 700px;
+        box-shadow: 0 0 20px #f1c40f;
+    }
+    .music-links h2 {
+        color: #f1c40f;
+        margin-bottom: 20px;
+        font-size: 26px;
+    }
+    .music-links a {
+        display: inline-block;
+        margin: 10px;
+        padding: 15px 25px;
+        color: #fff;
+        background: #222;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 30px;
+        border: 2px solid #f1c40f;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px #f1c40f;
+    }
+    .music-links a:hover {
+        background: #f1c40f;
+        color: #111;
+        box-shadow: 0 0 25px #f1c40f, 0 0 50px #f39c12;
+        transform: scale(1.1);
+    }
+
+    /* Floating Social Icons */
+    .social-icons {
+        position: fixed;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 999;
+    }
+    .social-icons a {
+        width: 50px;
+        height: 50px;
+        background: #f1c40f;
+        color: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 22px;
+        text-decoration: none;
+        box-shadow: 0 0 10px #f1c40f;
+        transition: 0.3s ease;
+    }
+    .social-icons a:hover {
+        background: #fff;
+        color: #f1c40f;
+        box-shadow: 0 0 25px #f1c40f, 0 0 50px #f39c12;
+        transform: scale(1.2);
+    }
+    @media screen and (max-width: 768px) {
+        .social-icons {
+            left: 5px;
+        }
+    }
+</style>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <!-- Music Store Links -->
 <div class="music-links">
-    <h2>Listen on Music Platforms</h2>
+    <h2>🎧 Listen on Music Platforms 🎧</h2>
     <a href="https://youtu.be/CSk1ZqL2mKM?si=79edwLtzwYlb8AXj" target="_blank">YouTube</a>
     <a href="https://open.spotify.com/track/1tAf6A4ZJQXgJqZcd0ZRX1?si=eYzC-iMjSh6J3DjZ4Enorg" target="_blank">Spotify</a>
     <a href="https://music.apple.com/ke/album/my-gee-single/1827335536" target="_blank">Apple Music</a>
     <a href="https://audiomack.com/adict-manlung/song/my-gee?share-user-id=176955407" target="_blank">Audiomack</a>
 </div>
 
+<!-- Floating Social Media Icons -->
+<div class="social-icons">
+    <a href="https://youtube.com/@AdictManlung" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://facebook.com/AdictManlung" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/AdictManlung" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@AdictManlung" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://twitter.com/AdictManlung" target="_blank"><i class="fab fa-twitter"></i></a>
+</div>
+
+       🔥 Adict Manlung – The Voice of the Streets 🔥
+Straight out of the heart of Black Africa, Adict Manlung is telling stories that matter. From the gritty truth in “Unfinished Business” to the raw energy of “My Gee”, every track is a piece of real life – loyalty, hustle, pain, and glory.
+
+🎧 “Black Africa” (upcoming) – A powerful anthem celebrating roots, resilience, and pride.
+🎧 “Unfinished Business” – A reminder that the mission never stops, the grind never sleeps.
+🎧 “My Gee” – For the brothers who stayed real when the world turned fake.
+
+This is more than music. It’s the movement of the flock, a soundtrack for those who know the struggle and still choose to rise.
+
+Follow Adict Manlung everywhere and stream the songs on YouTube, Spotify, Apple Music, Audiomack, and Boomplay.
+#AdictManlung #BlackAfrica #MyGee #UnfinishedBusiness #StreetSound
 <footer>&copy; 2025 Adict Manlung. All rights reserved.</footer>
-
-<script>
-    const trackFiles = {
-        "Black Africa": "Black_Africa.wav",
-        "My Gee": "My_Gee.mp3",
-        "Unfinished Business": "Unfinished_Business.mp3"
-    };
-
-    function showPayment(track) {
-        document.getElementById('selected-track').innerText = track;
-        document.getElementById('payment-section').style.display = 'block';
-        document.getElementById('status').innerText = '';
-        document.getElementById('downloads').style.display = 'none';
-        document.getElementById('txn-id').value = '';
-
-        const username = "your-username"; // Replace with your GitHub username
-        const repo = "your-repo"; // Replace with your GitHub repo name
-        const fileName = trackFiles[track];
-        const downloadLink = document.getElementById('download-link');
-        downloadLink.href = `https://${username}.github.io/${repo}/${fileName}`;
-        downloadLink.innerText = `Download ${track}`;
-    }
-
-    function verifyPayment() {
-        let txn = document.getElementById('txn-id').value.trim();
-        if (txn.length < 8) {
-            document.getElementById('status').innerText = 'Invalid Transaction ID. Please check and try again.';
-        } else {
-            document.getElementById('status').innerText = 'Payment verified! Unlocking downloads...';
-            setTimeout(() => {
-                document.getElementById('downloads').style.display = 'block';
-            }, 1500);
-        }
-    }
-</script>
-
-</body>
-</html>

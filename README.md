@@ -1,1 +1,1 @@
-## thumbnails
+## CD`s
